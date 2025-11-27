@@ -1,43 +1,53 @@
+# SwiftUI To-Do & Reminder App 
+
+<img width="2580" height="2759" alt="GüncelMockup-2" src="https://github.com/user-attachments/assets/9bd748e2-97e9-499d-a9dd-3203a34f2a6f" />
 
 
-# Notely: iOS Not Uygulaması
+**Proje Özeti:**
+    Bu proje, SwiftUI ile geliştirilmiş bir görev ve not
+    yönetimi uygulamasıdır. Kullanıcılar not ekleyebilir, notlara saatli
+    alarm kurabilir, düzenleme yapabilir, hesap açıp giriş yapabilir.
+    Uygulama hem lokal olarak SwiftData kullanarak hem de Firestore ile
+    bulut üzerinde veri saklar. Ayrıca çoklu dil desteği (localization)
+    ve tema değiştirme özellikleri bulunmaktadır.
 
-<img width="1619" height="1730" alt="todo mockup" src="https://github.com/user-attachments/assets/73278c2b-037d-49bf-a7c6-55353c0224de" />
+**Temel Özellikler**
 
-## Temel Özellikler
--   **Firebase ile Güvenli Kimlik Doğrulama:** E-posta ve şifre ile kullanıcı kaydı ve girişi.
--   **Çevrimdışı Öncelikli Çalışma:** SwiftData sayesinde internet bağlantısı olmadan tüm not işlemlerini (oluşturma, düzenleme, silme) sorunsuzca gerçekleştirebilme.
--   **Anlık Bulut Senkronizasyonu:** Firestore veritabanı ile tüm verilerin, bağlantı kurulduğu an bulutla otomatik olarak senkronize edilmesi.
+-   Not ekleme ve düzenleme
+-   Notlara tarih ve saat ekleyerek alarm kurma
+-   Mevcut notları silme ve düzenleme
+-   Firebase Authentication ile hesap açma, giriş ve çıkış
+-   Firestore ile bulut senkronizasyonu
+-   SwiftData ile offline kullanım desteği
+-   Uygulama içinden dil değiştirme (localization)
+-   Açık, koyu veya sistem temasını seçebilme
 
-   ## Teknolojiler ve Mimari
+**Kullanılan Teknolojiler**
 
-Proje, modern iOS geliştirme pratikleri göz önünde bulundurularak **Özellik Odaklı Mimari (Feature-Driven Architecture)** prensibiyle tasarlanmıştır. Bu yaklaşım ile kodun modüler, anlaşılır ve bakımının kolay olması hedeflenmiştir.
+  **SwiftUI:** Arayüz tamamen SwiftUI ile geliştirilmiştir.
 
--   **UI:** SwiftUI
--   **Yerel Veritabanı (Çevrimdışı Depolama):** SwiftData
--   **Backend & Senkronizasyon:** Google Firebase
-    -   **Authentication:** Kullanıcı yönetimi
-    -   **Firestore:** Gerçek zamanlı NoSQL veritabanı
-## Mimari Yapının Açıklaması
+  **SwiftData:** Cihaz üzerinde hızlı ve güvenilir veri saklama için SwiftData
+kullanılmıştır.
 
+  **Firebase Firestore:** Kullanıcıya özel koleksiyonlarla notlar bulutta
+saklanır. Gerçek zamanlı senkronizasyon sunar.
 
-Proje, sorumlulukların net bir şekilde ayrıldığı katmanlı bir yapıya sahiptir:
+  **Firebase Authentication:** Kullanıcı giriş ve kayıt işlemleri için
+e-posta/şifre doğrulama kullanılır. Auth durumuna göre kullanıcı arayüze
+yönlendirilir.
 
--   **Application Katmanı:** Uygulamanın yaşam döngüsünü (App, AppDelegate), genel oturum durumunu (Session) ve ilk yönlendirme mantığını (RootView) içerir. Projenin başlangıç ve ana yapılandırma merkezidir.
+  **UserNotifications:** Notlara bağlı hatırlatma ve alarm bildirimleri için
+iOS’in yerel bildirim sistemi kullanılır.
 
--   **Features Katmanı:** Uygulamanın ana işlevsel modüllerini barındırır. Her özellik (örneğin Onboarding, Authentication, Notes) kendi klasörü içinde, kendine ait View'ları ve mantığıyla birlikte bulunur. Bu, projenin ölçeklenmesini kolaylaştırır.
+  **Localization:** Uygulama içerisinde kullanılacak tüm metinler
+Localizable.strings dosyaları üzerinden yönetilir. Türkçe ve İngilizce
+dil desteği sunulur.
 
--   **Core Katmanı:** Uygulamanın merkezi iş mantığını ve altyapısını içerir.
-    -   **Data:** SwiftData ile tanımlanmış veri modellerini (AppUser, Note) barındırır.
-    -   **Services:** AuthService ve FirebaseSyncManager gibi Firebase ile iletişimi yöneten ve arka plan işlemlerini yürüten servisleri içerir.
+  **Theme Management:** Kullanıcı açık, koyu veya sistem temasını seçebilir.
+Tema bilgisi saklanır ve uygulama yeniden açıldığında uygulanır.
 
--   **Shared Katmanı:** Birden fazla özellikte kullanılan, yeniden kullanılabilir bileşenleri ve yardımcı kodları barındırır.
-    -   **UI:** CustomTextField gibi genel UI bileşenleri burada toplanmıştır.
-    -   **Extensions:** String gibi mevcut türlere eklenen yardımcı fonksiyonlar burada yer alır.
- 
-
-   ## Geliştirici
+  ## Geliştirici
 
   **Batuhan Koç**
 
-Bu proje, **OnesTechnology**'deki staj programım süresince geliştirilmiştir.    
+  Bu proje, **OnesTechnology**'deki staj programım süresince geliştirilmiştir.    
